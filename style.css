@@ -76,10 +76,10 @@ button {
     background: #176b35;
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 11px 18px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 button:hover {
@@ -95,6 +95,35 @@ section h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #176b35;
+}
+
+/* Search */
+.search-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 90%;
+    max-width: 550px;
+    padding: 14px 18px;
+    border: 2px solid #176b35;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.categories button {
+    border-radius: 20px;
 }
 
 /* Products */
@@ -133,7 +162,21 @@ section h2 {
 .product-card strong {
     display: block;
     font-size: 20px;
-    margin-top: 10px;
+    margin: 10px 0;
+}
+
+/* Cart */
+.cart-box {
+    background: white;
+    margin-top: 30px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-box h2 {
+    margin-bottom: 15px;
 }
 
 /* About & Contact */
@@ -183,5 +226,9 @@ footer {
 
     nav a {
         font-size: 14px;
+    }
+
+    .search-box input {
+        width: 100%;
     }
 }
