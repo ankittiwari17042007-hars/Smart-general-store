@@ -233,10 +233,10 @@ function checkout() {
        country code ke saath likhna hai.
        
        Example format:
-       91XXXXXXXXXX
+       919795521543
     */
 
-    const phoneNumber = "91XXXXXXXXXX";
+    const phoneNumber = "919795521543";
 
     const whatsappURL =
         "https://wa.me/" +
