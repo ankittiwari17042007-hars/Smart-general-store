@@ -1,1 +1,151 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Smart General Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📊 Admin Dashboard</h1>
+        <p>Smart General Store Management</p>
+    </header>
+
+    <main>
+
+        <!-- Dashboard Cards -->
+        <section class="dashboard">
+
+            <div class="dashboard-card">
+                <h3>📦 Total Products</h3>
+                <p id="totalProducts">4</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>🛒 Total Orders</h3>
+                <p id="totalOrders">0</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>💰 Today's Sales</h3>
+                <p>₹<span id="todaySales">0</span></p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>⚠️ Low Stock</h3>
+                <p id="lowStock">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Product Management -->
+        <section class="admin-section">
+
+            <h2>📦 Product Management</h2>
+
+            <button onclick="addProduct()">
+                ➕ Add Product
+            </button>
+
+            <div class="admin-table">
+
+                <div class="table-row table-header">
+                    <span>Product</span>
+                    <span>Price</span>
+                    <span>Stock</span>
+                    <span>Action</span>
+                </div>
+
+                <div class="table-row">
+                    <span>Rice</span>
+                    <span>₹350</span>
+                    <span>25</span>
+                    <span>
+                        <button onclick="editProduct('Rice')">
+                            Edit
+                        </button>
+                    </span>
+                </div>
+
+                <div class="table-row">
+                    <span>Soap</span>
+                    <span>₹40</span>
+                    <span>10</span>
+                    <span>
+                        <button onclick="editProduct('Soap')">
+                            Edit
+                        </button>
+                    </span>
+                </div>
+
+                <div class="table-row">
+                    <span>Milk</span>
+                    <span>₹60</span>
+                    <span>8</span>
+                    <span>
+                        <button onclick="editProduct('Milk')">
+                            Edit
+                        </button>
+                    </span>
+                </div>
+
+                <div class="table-row">
+                    <span>Biscuits</span>
+                    <span>₹30</span>
+                    <span>15</span>
+                    <span>
+                        <button onclick="editProduct('Biscuits')">
+                            Edit
+                        </button>
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Orders -->
+        <section class="admin-section">
+
+            <h2>🛒 Recent Orders</h2>
+
+            <div class="order-box">
+
+                <p>
+                    No orders yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Back -->
+        <section class="admin-section">
+
+            <a href="index.html" class="back-button">
+                ← Back to Store
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Smart General Store - Admin Panel</p>
+    </footer>
+
+
+    <script src="admin.js"></script>
+
+</body>
+</html>
