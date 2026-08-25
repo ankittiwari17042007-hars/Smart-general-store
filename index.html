@@ -11,11 +11,13 @@
 
 <body>
 
+    <!-- Header -->
     <header>
         <h1>🛒 Smart General Store</h1>
         <p>Your Friendly Local Store</p>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <a href="#home">Home</a>
         <a href="#products">Products</a>
@@ -25,6 +27,7 @@
 
     <main>
 
+        <!-- Hero -->
         <section id="home" class="hero">
             <h2>Welcome to Smart General Store</h2>
             <p>Daily-use products at affordable prices.</p>
@@ -34,61 +37,168 @@
             </button>
         </section>
 
+        <!-- Products -->
         <section id="products">
+
             <h2>Our Products</h2>
 
+            <!-- Search -->
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search products..."
+                    onkeyup="searchProducts()"
+                >
+            </div>
+
+            <!-- Categories -->
+            <div class="categories">
+
+                <button onclick="filterProducts('all')">
+                    All
+                </button>
+
+                <button onclick="filterProducts('grocery')">
+                    Grocery
+                </button>
+
+                <button onclick="filterProducts('personal')">
+                    Personal Care
+                </button>
+
+                <button onclick="filterProducts('beverages')">
+                    Beverages
+                </button>
+
+                <button onclick="filterProducts('snacks')">
+                    Snacks
+                </button>
+
+            </div>
+
+            <!-- Product Cards -->
             <div class="products">
 
-                <div class="product-card">
+                <div class="product-card" data-category="grocery">
                     <div class="product-image">🍚</div>
+
                     <h3>Rice</h3>
-                    <p>Quality rice for your daily needs.</p>
+
+                    <p>Quality rice for daily needs.</p>
+
                     <strong>₹350</strong>
+
+                    <button onclick="addToCart('Rice', 350)">
+                        Add to Cart
+                    </button>
                 </div>
 
-                <div class="product-card">
+
+                <div class="product-card" data-category="personal">
                     <div class="product-image">🧼</div>
+
                     <h3>Soap</h3>
+
                     <p>Good quality bathing soap.</p>
+
                     <strong>₹40</strong>
+
+                    <button onclick="addToCart('Soap', 40)">
+                        Add to Cart
+                    </button>
                 </div>
 
-                <div class="product-card">
+
+                <div class="product-card" data-category="beverages">
                     <div class="product-image">🥛</div>
+
                     <h3>Milk</h3>
+
                     <p>Fresh milk for everyday use.</p>
+
                     <strong>₹60</strong>
+
+                    <button onclick="addToCart('Milk', 60)">
+                        Add to Cart
+                    </button>
                 </div>
 
-                <div class="product-card">
+
+                <div class="product-card" data-category="snacks">
                     <div class="product-image">🍪</div>
+
                     <h3>Biscuits</h3>
+
                     <p>Tasty snacks for everyone.</p>
+
                     <strong>₹30</strong>
+
+                    <button onclick="addToCart('Biscuits', 30)">
+                        Add to Cart
+                    </button>
                 </div>
 
             </div>
+
+            <!-- Cart -->
+            <div class="cart-box">
+
+                <h2>🛒 Cart</h2>
+
+                <p>
+                    Items:
+                    <span id="cartCount">0</span>
+                </p>
+
+                <p>
+                    Total:
+                    ₹<span id="cartTotal">0</span>
+                </p>
+
+            </div>
+
         </section>
 
+
+        <!-- About -->
         <section id="about" class="about">
+
             <h2>About Our Store</h2>
+
             <p>
                 Smart General Store provides useful daily products
                 for customers at reasonable prices.
             </p>
+
         </section>
 
+
+        <!-- Contact -->
         <section id="contact" class="contact">
+
             <h2>Contact Us</h2>
+
             <p>📞 Call us for more information.</p>
-            <button onclick="showMessage()">Contact Store</button>
+
+            <button onclick="showMessage()">
+                Contact Store
+            </button>
+
         </section>
 
     </main>
 
+
+    <!-- Footer -->
     <footer>
-        <p>© 2026 Smart General Store</p>
+
+        <p>
+            © 2026 Smart General Store
+        </p>
+
     </footer>
+
 
     <script src="script.js"></script>
 
