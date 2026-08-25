@@ -1,7 +1,7 @@
-let cartCount = 0;
-let cartTotal = 0;
+let cart = [];
 
-// Shop Now / Contact button
+
+// Shop Now / Contact
 function showMessage() {
     alert("Welcome to Smart General Store! 🛒");
 }
@@ -49,19 +49,162 @@ function filterProducts(category) {
         }
 
     });
-
 }
 
 
-// Add product to cart
-function addToCart(productName, price) {
+// Add to cart
+function addToCart(name, price) {
 
-    cartCount++;
-    cartTotal += price;
+    const existingProduct =
+        cart.find(item => item.name === name);
 
-    document.getElementById("cartCount").textContent = cartCount;
+    if (existingProduct) {
 
-    document.getElementById("cartTotal").textContent = cartTotal;
+        existingProduct.quantity++;
 
-    alert(productName + " added to cart! 🛒");
+    } else {
+
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    alert(name + " added to cart! 🛒");
+}
+
+
+// Increase quantity
+function increaseQuantity(index) {
+
+    cart[index].quantity++;
+
+    updateCart();
+}
+
+
+// Decrease quantity
+function decreaseQuantity(index) {
+
+    cart[index].quantity--;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+
+// Remove product
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+
+// Update cart
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            "<p>Your cart is empty.</p>";
+
+        cartTotal.textContent = "0";
+
+        return;
+    }
+
+
+    let total = 0;
+
+    cartItems.innerHTML = "";
+
+
+    cart.forEach(function(item, index) {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+
+        cartItems.innerHTML += `
+
+            <div class="cart-item">
+
+                <div>
+                    <strong>${item.name}</strong>
+
+                    <p>
+                        ₹${item.price} × ${item.quantity}
+                    </p>
+                </div>
+
+                <div class="quantity-controls">
+
+                    <button onclick="decreaseQuantity(${index})">
+                        −
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="increaseQuantity(${index})">
+                        +
+                    </button>
+
+                    <button onclick="removeFromCart(${index})">
+                        ❌
+                    </button>
+
+                </div>
+
+                <strong>
+                    ₹${itemTotal}
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+
+    cartTotal.textContent = total;
+}
+
+
+// Checkout
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty!");
+
+        return;
+    }
+
+
+    alert(
+        "Order placed successfully! 🎉\n\n" +
+        "Thank you for shopping with us."
+    );
+
+    cart = [];
+
+    updateCart();
 }
