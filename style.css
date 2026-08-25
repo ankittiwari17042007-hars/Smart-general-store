@@ -232,3 +232,12 @@ footer {
         width: 100%;
     }
 }
+.whatsapp-btn {
+    background: #25D366;
+    margin: 10px;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
