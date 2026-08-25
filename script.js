@@ -196,7 +196,58 @@ function checkout() {
         alert("Your cart is empty!");
 
         return;
+    }function orderOnWhatsApp() {
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
     }
+
+    let message = "🛒 *Smart General Store Order*%0A%0A";
+
+    let total = 0;
+
+    cart.forEach(function(item) {
+
+        let itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        message +=
+            item.name +
+            " × " +
+            item.quantity +
+            " = ₹" +
+            itemTotal +
+            "%0A";
+    });
+
+    message +=
+        "%0A*Total: ₹" +
+        total +
+        "*";
+
+    /*
+       IMPORTANT:
+       Yahan apne store ka WhatsApp number
+       country code ke saath likhna hai.
+       
+       Example format:
+       91XXXXXXXXXX
+    */
+
+    const phoneNumber = "91XXXXXXXXXX";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        message;
+
+    window.open(whatsappURL, "_blank");
+}
+
+    
 
 
     alert(
